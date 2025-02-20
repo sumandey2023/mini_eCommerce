@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Faculty+Glyphic&family=Fredoka:wght@300..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Signika+Negative:wght@300..700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Sour Gummy", serif;
+      }
+    </style>
+    <script>
+      function confirmDelete(url) {
+        if (confirm("Do you want to delete this product from your website?")) {
+          window.location.href = url;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div
+      class="w-full min-h-screen flex flex-col px-5 md:px-20 py-10 md:py-20 gap-5 md:gap-10 bg-gradient-to-r from-purple-500 to-pink-500 text-white relative"
+    >
+      <!-- Back Button -->
+      <a
+        href="/owner/admin"
+        class="absolute top-5 left-5 bg-white text-black p-2 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-200"
+      >
+        <i class="ri-arrow-left-line text-lg"></i>
+      </a>
+
+      <div class="flex flex-wrap gap-5 md:gap-10 w-full">
+        <% products.forEach((e) => { %>
+        <div
+          class="w-full sm:w-[48%] md:w-[30%] rounded-lg overflow-hidden shadow-lg bg-white text-black"
+        >
+          <div
+            class="w-full h-60 md:h-80 flex items-center justify-center bg-[<%= e.bgcolor %>] p-2"
+          >
+            <img
+              src="data:image/jpeg;base64,<%= e.image.toString('base64') %>"
+              alt="<%= e.name %>"
+              class="w-auto h-full max-h-full object-contain"
+            />
+          </div>
+
+          <div
+            class="w-full flex justify-between px-4 py-3 md:px-5 md:py-4 bg-[<%= e.panelcolor %>] text-[<%= e.textcolor %>]"
+          >
+            <h3 class="text-lg md:text-2xl"><%= e.name %></h3>
+            <div class="flex items-center gap-2">
+              <a
+                href="#"
+                onclick="confirmDelete('/owner/deleteProduct/<%= e._id.toString() %>')"
+                class="w-6 h-6 md:w-7 md:h-7 bg-pink-500 text-white flex rounded-full items-center justify-center hover:bg-pink-600"
+              >
+                <i class="ri-subtract-line"></i>
+              </a>
+            </div>
+          </div>
+          <div
+            class="flex px-4 py-3 md:px-5 md:py-3 flex flex-col bg-[<%= e.panelcolor %>] text-[<%= e.textcolor %>]"
+          >
+            <p class="text-sm">M.R.P ₹ <%= e.price %></p>
+            <p class="text-sm">discount ₹ <%= e.discount %></p>
+            <h4 class="text-md md:text-lg">
+              Net Total : ₹ <%= e.price - e.discount %>
+            </h4>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

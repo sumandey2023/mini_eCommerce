@@ -1,0 +1,119 @@
+<%- include('./partials/header') %> <% if(success.length>0){ %>
+<div
+  class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500 z-10"
+>
+  <span class="inline-block mt-1 mb-1 text-white"> <%= success %> </span>
+</div>
+<% } %>
+
+<!-- Shop Section -->
+<div class="w-full flex flex-col md:flex-row px-10 py-20">
+  <!-- Sidebar Toggle Button -->
+  <button
+    id="sidebar-toggle"
+    class="fixed left-4 top-20 bg-pink-500 text-white px-3 py-2 rounded-full z-50"
+  >
+    &#x25B6;
+  </button>
+
+  <!-- Sidebar (Filter Section) -->
+  <aside
+    id="sidebar"
+    class="fixed top-0 left-0 w-3/4 md:w-1/4 h-full bg-white z-50 transform -translate-x-full transition-transform duration-300 shadow-lg"
+  >
+    <div class="p-4 flex justify-between items-center border-b">
+      <h3 class="text-lg font-semibold">Filters</h3>
+      <button id="close-sidebar" class="text-pink-500 text-xl">&times;</button>
+    </div>
+    <div class="mb-6 p-4">
+      <h3 class="text-lg font-semibold">Sort By</h3>
+      <form action="/shop">
+        <select class="border p-2 rounded w-full" name="sortby">
+          <option value="popular">Popular</option>
+          <option value="newest">Newest</option>
+        </select>
+      </form>
+    </div>
+    <div class="mb-6 p-4">
+      <h3 class="text-lg font-semibold">Categories</h3>
+      <a class="block text-gray-700 hover:text-pink-500" href="#"
+        >New Collection</a
+      >
+      <a class="block text-gray-700 hover:text-pink-500" href="#"
+        >All Products</a
+      >
+      <a class="block text-gray-700 hover:text-pink-500" href="#"
+        >Discounted Products</a
+      >
+    </div>
+  </aside>
+
+  <!-- Product Display -->
+  <section
+    class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+  >
+    <% products.forEach(function(product){ %>
+    <div class="border rounded-lg shadow-lg overflow-hidden">
+      <div
+        class="w-full h-60 flex items-center justify-center bg-[<%= product.bgcolor %>]"
+      >
+        <img
+          class="h-40"
+          src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+          alt=""
+        />
+      </div>
+      <div
+        class="p-4 bg-[<%= product.panelcolor %>] text-[<%= product.textcolor %>]"
+      >
+        <h3 class="text-lg font-semibold"><%= product.name %></h3>
+        <p class="text-sm">M.R.P ₹ <%= product.price %></p>
+        <p class="text-sm">Discount ₹ <%= product.discount %></p>
+        <p class="text-lg">
+          Net Total ₹ <%= product.price - product.discount %>
+        </p>
+
+        <div class="flex justify-between items-center mt-4">
+          <a
+            class="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600"
+            href="/addtocart/<%= product._id %>"
+          >
+            Add to Cart
+          </a>
+          <a
+            class="w-8 h-8 flex items-center justify-center bg-white text-pink-500 rounded-full shadow-md"
+            href="/addtocart/<%= product._id %>"
+          >
+            <i class="ri-add-line"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </section>
+</div>
+
+<!-- JavaScript -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sidebarToggle = document.getElementById("sidebar-toggle");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("close-sidebar");
+
+    sidebarToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("-translate-x-full");
+    });
+
+    closeSidebar.addEventListener("click", () => {
+      sidebar.classList.add("-translate-x-full");
+    });
+  });
+</script>
+
+<style>
+  body {
+    overflow-x: hidden;
+  }
+</style>
+
+<%- include('./partials/footer') %>

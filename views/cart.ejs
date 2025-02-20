@@ -1,0 +1,101 @@
+<%- include('./partials/header') %> <% if(user.cart.length > 0) { %>
+<div
+  class="w-full min-h-screen flex flex-col px-5 md:px-20 py-10 md:py-20 gap-5 md:gap-10 bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+>
+  <div class="flex flex-wrap gap-5 md:gap-10 w-full">
+    <% user.cart.forEach((e) => { %>
+    <div
+      class="w-full sm:w-[48%] md:w-[30%] rounded-lg overflow-hidden shadow-lg bg-white text-black"
+    >
+      <div
+        class="w-full h-60 md:h-80 flex items-center justify-center bg-[<%= e.bgcolor %>] p-2"
+      >
+        <img
+          src="data:image/jpeg;base64,<%= e.image.toString('base64') %>"
+          alt="<%= e.name %>"
+          class="w-auto h-full max-h-full object-contain"
+        />
+      </div>
+
+      <div
+        class="w-full flex justify-between px-4 py-3 md:px-5 md:py-4 bg-[<%= e.panelcolor %>] text-[<%= e.textcolor %>]"
+      >
+        <h3 class="text-lg md:text-2xl"><%= e.name %></h3>
+        <div class="flex items-center gap-2">
+          <a
+            href="/deletefromcart/<%= e._id.toString() %>"
+            class="w-6 h-6 md:w-7 md:h-7 bg-pink-500 text-white flex rounded-full items-center justify-center hover:bg-pink-600"
+          >
+            <i class="ri-subtract-line"></i>
+          </a>
+        </div>
+      </div>
+      <div
+        class="flex px-4 py-3 md:px-5 md:py-3 flex flex-col bg-[<%= e.panelcolor %>] text-[<%= e.textcolor %>]"
+      >
+        <p class="text-sm">M.R.P ₹ <%= e.price %></p>
+        <p class="text-sm">discount ₹ <%= e.discount %></p>
+        <h4 class="text-md md:text-lg">
+          Net Total : ₹ <%= e.price - e.discount %>
+        </h4>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+
+  <div
+    class="w-full md:w-[70%] bg-white text-black p-5 md:p-10 rounded-lg shadow-lg"
+  >
+    <h3 class="text-lg md:text-xl font-bold">Price Breakdown</h3>
+    <div class="px-5 md:px-10 mt-3 md:mt-5">
+      <div class="flex mt-2">
+        <h4 class="w-1/2 md:w-1/3">Total MRP</h4>
+        <h4>₹ <%= bill %></h4>
+      </div>
+      <div class="flex mt-2">
+        <h4 class="w-1/2 md:w-1/3">Discount on MRP</h4>
+        <h4>₹ <%= discount %></h4>
+      </div>
+      <div class="flex mt-2">
+        <h4 class="w-1/2 md:w-1/3">Platform Fee</h4>
+        <h4>₹ 20</h4>
+      </div>
+      <div class="flex mt-2">
+        <h4 class="w-1/2 md:w-1/3">Shipping Fee</h4>
+        <h4 class="text-green-600">FREE</h4>
+      </div>
+    </div>
+    <div class="w-full h-[1px] bg-gray-300 mt-5 md:mt-10"></div>
+    <div class="flex mt-3 md:mt-5">
+      <h3 class="w-1/2 md:w-1/3 text-lg md:text-xl font-bold">Total Amount</h3>
+      <h3 class="font-semibold text-lg md:text-xl text-green-600">
+        ₹ <%= bill - discount + 20 %>
+      </h3>
+    </div>
+    <form action="/checkout" method="POST">
+      <button
+        type="submit"
+        class="mt-5 px-4 py-2 md:px-6 md:py-3 bg-pink-500 text-white rounded-md w-full md:w-auto hover:bg-pink-600"
+      >
+        Proceed to Checkout
+      </button>
+    </form>
+  </div>
+</div>
+
+<% } else { %>
+<div
+  class="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-700 p-10"
+>
+  <h1 class="text-2xl md:text-3xl font-semibold">Your Cart is Empty</h1>
+  <p class="mt-2 text-md md:text-lg">
+    Looks like you haven't added anything yet.
+  </p>
+  <a
+    href="/shop"
+    class="mt-5 px-5 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600"
+  >
+    Shop Now
+  </a>
+</div>
+<% } %> <%- include('./partials/footer') %>

@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
+const config = require("config");
+const dbgr = require("debug")("development: mongoose");
 mongoose
-  .connect("mongodb://127.0.0.1:27017/SportSphere")
-  .then(() => console.log("Connected to MongoDB..."))
-  .catch((err) => console.error("Could not connect to MongoDB...", err));
+  // .connect(`${config.get("MONGODB_URI")}/SportSphere`)
+  .connect(`${config.get("MONGODB_URI")}`)
+  .then(() => dbgr("Connected to MongoDB..."))
+  .catch((err) => dbgr("Could not connect to MongoDB...", err));
 
 module.exports = mongoose.connection;

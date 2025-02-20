@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sport Sphere</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 to-pink-500"
+  >
+    <% if(success.length>0){ %>
+    <div
+      class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500"
+    >
+      <span class="inline-block mt-1 mb-1 text-white"> <%= success %> </span>
+    </div>
+    <% } %>
+    <div class="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-3xl">
+      <div class="flex flex-col mb-6">
+        <a
+          class="block w-fit mb-2 text-pink-500 hover:underline"
+          href="/owner/allProducts"
+          >All Products</a
+        >
+        <a class="block w-fit mb-2 text-pink-500 hover:underline" href=""
+          >Orders</a
+        >
+        <a class="block w-fit mb-2 text-pink-500 hover:underline" href="/logout"
+          >Logout</a
+        >
+      </div>
+      <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">
+        Create New Product
+      </h2>
+      <form
+        action="/product/create"
+        method="post"
+        enctype="multipart/form-data"
+        class="space-y-6"
+      >
+        <div>
+          <label class="block font-medium text-gray-700">Product Image</label>
+          <input
+            type="file"
+            name="image"
+            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Product Name"
+            class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+          <input
+            type="text"
+            name="price"
+            placeholder="Product Price"
+            class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+          <input
+            type="text"
+            name="discount"
+            placeholder="Discount Price"
+            class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <input
+            type="text"
+            name="bgcolor"
+            placeholder="Background Color"
+            class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+          <input
+            type="text"
+            name="panelcolor"
+            placeholder="Panel Color"
+            class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+          <input
+            type="text"
+            name="textcolor"
+            placeholder="Text Color"
+            class="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full py-3 bg-pink-500 text-white font-bold rounded-lg shadow-md hover:bg-pink-600 transition"
+        >
+          Create Product
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
