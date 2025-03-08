@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sport Sphere Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Sour Gummy", serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Admin Navigation -->
+    <nav
+      class="fixed top-0 left-0 w-full flex items-center justify-between px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg z-40"
+    >
+      <h2 class="text-white text-2xl font-bold">Sport Sphere Admin</h2>
+      <div class="hidden md:flex items-center gap-6">
+        <a class="text-white hover:text-gray-300" href="/owner/admin"
+          >Create Product</a
+        >
+        <a class="text-white hover:text-gray-300" href="/owner/allProducts"
+          >All Products</a
+        >
+        <a class="text-white hover:text-gray-300" href="/owner/orders"
+          >Orders</a
+        >
+        <a
+          class="px-4 py-2 bg-white text-pink-500 rounded-md hover:bg-gray-100 transition-colors"
+          href="/user/logout"
+          >Logout</a
+        >
+      </div>
+      <button id="menu-toggle" class="md:hidden text-white text-2xl">☰</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 right-0 w-3/4 h-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 transform translate-x-full transition-transform duration-300 z-50"
+    >
+      <button id="close-menu" class="absolute top-4 left-4 text-white text-2xl">
+        &times;
+      </button>
+      <div class="flex flex-col items-start px-6 mt-10">
+        <a class="py-2" href="/owner/admin">Create Product</a>
+        <a class="py-2" href="/owner/allProducts">All Products</a>
+        <a class="py-2" href="/owner/orders">Orders</a>
+        <a
+          class="py-2 bg-white text-pink-500 px-4 rounded-md mt-2"
+          href="/user/logout"
+          >Logout</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMenu = document.getElementById("close-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("translate-x-full");
+      });
+
+      closeMenu.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          !mobileMenu.contains(e.target) &&
+          !menuToggle.contains(e.target) &&
+          !mobileMenu.classList.contains("translate-x-full")
+        ) {
+          mobileMenu.classList.add("translate-x-full");
+        }
+      });
+
+      // Close mobile menu on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.key === "Escape" &&
+          !mobileMenu.classList.contains("translate-x-full")
+        ) {
+          mobileMenu.classList.add("translate-x-full");
+        }
+      });
+    </script>
+  </body>
+</html>

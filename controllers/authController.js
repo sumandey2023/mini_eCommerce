@@ -43,15 +43,16 @@ module.exports.loginUser = async (req, res) => {
         res.cookie("token", token);
         res.redirect("/owner/admin");
       } else {
-        res.status(400).json({ message: "Email or password is incorrect" });
+        req.flash("error", "Email or password is incorrect");
+        res.redirect("/");
       }
     });
   } else {
     let user = await userModel.findOne({ email });
-    if (!user)
-      return res
-        .status(400)
-        .json({ message: "Email or password is incorrect" });
+    if (!user) {
+      req.flash("error", "Email or password is incorrect");
+      return res.redirect("/");
+    }
 
     bcrypt.compare(password, user.password, (err, result) => {
       if (result) {
@@ -59,7 +60,8 @@ module.exports.loginUser = async (req, res) => {
         res.cookie("token", token);
         res.redirect("/shop");
       } else {
-        res.status(400).json({ message: "Email or password is incorrect" });
+        req.flash("error", "Email or password is incorrect");
+        res.redirect("/");
       }
     });
   }

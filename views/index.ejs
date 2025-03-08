@@ -1,7 +1,7 @@
 <%- include('./partials/header') %> <% if (error.length > 0) { %>
 <div
   id="errorPopup"
-  class="fixed top-20 right-4 bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-xl shadow-lg z-50"
+  class="fixed top-20 right-4 bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-xl shadow-lg z-50 transform transition-all duration-300 ease-in-out"
 >
   <div class="flex items-center justify-between">
     <div class="flex items-center">
@@ -9,7 +9,7 @@
       <p class="font-medium"><%= error %></p>
     </div>
     <button
-      class="ml-6 text-red-500 hover:text-red-700"
+      class="ml-6 text-red-500 hover:text-red-700 transition-colors"
       onclick="closeErrorPopup()"
     >
       <i class="ri-close-line text-xl"></i>
@@ -204,6 +204,14 @@
         errorPopup.remove();
       }, 300);
     }
+  }
+
+  // Auto-hide error popup after 5 seconds
+  const errorPopup = document.getElementById("errorPopup");
+  if (errorPopup) {
+    setTimeout(() => {
+      closeErrorPopup();
+    }, 5000);
   }
 </script>
 
