@@ -259,3 +259,8 @@
 {"level":"info","message":"Request: GET /shop"}
 {"level":"info","message":"Request: GET /user/logout"}
 {"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 3001"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}

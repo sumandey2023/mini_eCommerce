@@ -6,7 +6,7 @@ const path = require("path");
 const expressSession = require("express-session");
 const flash = require("connect-flash");
 require("dotenv").config();
-const port = 4000; // Temporarily hardcoded port
+const port = process.env.PORT || 4000; // Temporarily hardcoded port
 const ownerRouter = require("./routes/ownerRouter");
 const userRouter = require("./routes/userRouter");
 const winston = require("winston");
