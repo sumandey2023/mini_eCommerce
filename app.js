@@ -4,9 +4,10 @@ const db = require("./config/mongoose-connect");
 const cookiParser = require("cookie-parser");
 const path = require("path");
 const expressSession = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 require("dotenv").config();
-const port = process.env.PORT || 4000; // Temporarily hardcoded port
+const port = process.env.PORT || 3000; // Changed default port to 3000
 const ownerRouter = require("./routes/ownerRouter");
 const userRouter = require("./routes/userRouter");
 const winston = require("winston");
@@ -41,6 +42,17 @@ app.use(
     resave: false,
     saveUninitialized: false,
     secret: process.env.EXPRESS_SESSION_SECRET,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      ttl: 24 * 60 * 60, // Session TTL (1 day)
+      autoRemove: "native",
+      touchAfter: 24 * 3600, // Time period in seconds to update the session
+    }),
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    },
   })
 );
 

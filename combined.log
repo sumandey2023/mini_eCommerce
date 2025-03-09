@@ -465,3 +465,21 @@ console.log("Request: GET /owner/admin{"level":"info","message":"Server is runni
 {"level":"info","message":"Request: GET /"}
 {"level":"info","message":"Request: POST /user/login"}
 {"level":"info","message":"Request: GET /shop"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: GET /favicon.ico"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /shop"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: GET /shop"}
+{"level":"info","message":"Request: GET /shop"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: GET /favicon.ico"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /shop"}
+{"level":"info","message":"Request: GET /cart"}
