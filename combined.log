@@ -483,3 +483,90 @@ console.log("Request: GET /owner/admin{"level":"info","message":"Server is runni
 {"level":"info","message":"Request: POST /user/login"}
 {"level":"info","message":"Request: GET /shop"}
 {"level":"info","message":"Request: GET /cart"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: GET /favicon.ico"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/register"}
+{"level":"info","message":"Request: GET /shop"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Request: GET /shop"}
+{"level":"info","message":"Request: GET /user/logout"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /"}
+{"level":"info","message":"Request: POST /user/login"}
+{"level":"info","message":"Request: GET /owner/admin"}
+{"level":"info","message":"Server is running on port 4000"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T07:53:07.157Z"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T07:53:37.453Z"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T08:00:47.901Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:01:04.714Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:01:19.816Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:01:30.080Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:01:51.017Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:02:01.224Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:02:16.186Z"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T08:03:08.164Z"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T08:03:25.281Z"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T08:05:15.782Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:05:26.450Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:05:37.802Z"}
+{"level":"info","message":"GET /owner/admin","timestamp":"2025-03-09T08:05:38.242Z"}
+{"level":"info","message":"GET /user/logout","timestamp":"2025-03-09T08:05:41.120Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:05:41.264Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:05:56.446Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:05:56.801Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:06:13.971Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:06:14.247Z"}
+{"level":"info","message":"POST /user/register","timestamp":"2025-03-09T08:06:43.816Z"}
+{"level":"info","message":"GET /shop","timestamp":"2025-03-09T08:06:44.349Z"}
+{"level":"info","message":"GET /user/logout","timestamp":"2025-03-09T08:06:48.913Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:06:49.055Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:06:56.777Z"}
+{"level":"info","message":"GET /shop","timestamp":"2025-03-09T08:06:57.186Z"}
+{"level":"info","message":"GET /user/logout","timestamp":"2025-03-09T08:07:02.032Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:07:02.167Z"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T08:11:24.345Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:11:33.067Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:11:58.424Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:12:11.739Z"}
+{"level":"info","message":"GET /owner/admin","timestamp":"2025-03-09T08:12:12.038Z"}
+{"level":"info","message":"GET /user/logout","timestamp":"2025-03-09T08:12:15.044Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:12:15.182Z"}
