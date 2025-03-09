@@ -570,3 +570,22 @@ console.log("Request: GET /owner/admin{"level":"info","message":"Server is runni
 {"level":"info","message":"GET /owner/admin","timestamp":"2025-03-09T08:12:12.038Z"}
 {"level":"info","message":"GET /user/logout","timestamp":"2025-03-09T08:12:15.044Z"}
 {"level":"info","message":"GET /","timestamp":"2025-03-09T08:12:15.182Z"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T08:36:32.893Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:36:42.437Z"}
+{"level":"info","message":"GET /favicon.ico","timestamp":"2025-03-09T08:36:42.935Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:37:00.315Z"}
+{"level":"info","message":"GET /owner/admin","timestamp":"2025-03-09T08:37:00.674Z"}
+{"level":"info","message":"POST /owner/create","timestamp":"2025-03-09T08:38:04.727Z"}
+{"level":"info","message":"GET /owner/admin","timestamp":"2025-03-09T08:38:05.487Z"}
+{"level":"info","message":"GET /owner/allProducts","timestamp":"2025-03-09T08:38:08.668Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:38:32.674Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:38:50.256Z"}
+{"level":"info","message":"GET /shop","timestamp":"2025-03-09T08:38:50.530Z"}
+{"level":"info","message":"GET /","timestamp":"2025-03-09T08:40:11.882Z"}
+{"level":"info","message":"POST /user/login","timestamp":"2025-03-09T08:40:32.700Z"}
+{"level":"info","message":"GET /shop","timestamp":"2025-03-09T08:40:32.937Z"}
+{"level":"info","message":"GET /addtocart/67cd536c088558737c83ba07","timestamp":"2025-03-09T08:40:38.512Z"}
+{"level":"info","message":"GET /cart","timestamp":"2025-03-09T08:40:38.909Z"}
+{"level":"info","message":"Server is running on port 4000 (development mode)","timestamp":"2025-03-09T08:48:34.971Z"}
+{"level":"info","message":"GET /owner/allProducts","timestamp":"2025-03-09T08:49:00.511Z"}
+{"level":"info","message":"GET /owner/admin","timestamp":"2025-03-09T08:49:04.731Z"}

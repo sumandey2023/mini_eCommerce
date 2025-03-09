@@ -8,26 +8,29 @@ const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
 const orderModel = require("../models/order-model");
 
-if (process.env.NODE_ENV) {
-  router.post("/create", async (req, res) => {
-    let owner = await ownerModel.find();
+// Initial owner creation route - only available during setup
+if (process.env.NODE_ENV === "development") {
+  router.post("/setup", async (req, res) => {
+    try {
+      let owner = await ownerModel.find();
+      if (owner.length > 0) {
+        return res.status(503).send("Owner already exists");
+      }
 
-    if (owner.length > 0) {
-      res.status(503).send("Owner already exists");
-    } else {
       let { fullname, email, password } = req.body;
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(password, salt, async (err, hash) => {
-          if (err) res.send(err.message);
-          else {
-            let createdOwner = await ownerModel.create({
-              fullname,
-              email,
-              password: hash,
-            });
-          }
-        });
+      const salt = await bcrypt.genSalt(10);
+      const hash = await bcrypt.hash(password, salt);
+
+      const createdOwner = await ownerModel.create({
+        fullname,
+        email,
+        password: hash,
       });
+
+      res.status(201).json({ message: "Owner created successfully" });
+    } catch (error) {
+      console.error("Owner creation error:", error);
+      res.status(500).send("Error creating owner");
     }
   });
 }
@@ -37,8 +40,14 @@ router.get("/admin", isLogedIn, (req, res) => {
 });
 
 router.get("/allProducts", isLogedIn, async (req, res) => {
-  let products = await productModel.find();
-  res.render("allProducts", { products, path: "/owner/allProducts" });
+  try {
+    let products = await productModel.find();
+    res.render("allProducts", { products, path: "/owner/allProducts" });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    req.flash("error", "Failed to fetch products");
+    res.redirect("/owner/admin");
+  }
 });
 
 router.get("/orders", isLogedIn, async (req, res) => {
@@ -68,12 +77,19 @@ router.get("/orders", isLogedIn, async (req, res) => {
       path: "/owner/orders",
     });
   } catch (err) {
+    console.error("Error fetching orders:", err);
     res.status(500).send("Server Error");
   }
 });
 
+// Product creation route
 router.post("/create", isLogedIn, upload.single("image"), async (req, res) => {
   try {
+    if (!req.file) {
+      req.flash("error", "Product image is required");
+      return res.redirect("/owner/admin");
+    }
+
     const { name, price, discount, category, bgcolor, panelcolor, textcolor } =
       req.body;
 
@@ -103,6 +119,7 @@ router.post("/delete/:id", isLogedIn, async (req, res) => {
     req.flash("success", "Product deleted successfully");
     res.redirect("/owner/allProducts");
   } catch (err) {
+    console.error("Error deleting product:", err);
     req.flash("error", "Failed to delete product");
     res.redirect("/owner/allProducts");
   }
